@@ -17,3 +17,17 @@ La estructura del la aplicacion es la siguiente:
 - ListUsers Form donde se veran todas las salas en el que un usario a ingresado.
   - Funcionamiento: Se seleccionara una sala de chat de lista que se muestra y dar click en el boton de Details para que este abra el form de listar todos los mensajes que el usuario a mandado.
 
+- Para la base de datos se adjunto scrip para creacion , en este caso se hizo una base de datos basica que consta de 3 tablas.
+  - Users:
+    - id int (auto incremental)
+    - nick varchar (Nick del usuario que ingreso )
+    - connec bit (se usa para verificar si el usuario esta conectado , true para conectado y false para desconectado)
+  - Room:
+    - id  int (auto incremental)
+    - name varchar (Nombre de la sala de chat)
+    - users int (Users sirve para llevar un conteo de cuanto usuarios estan conectados en esa sala en caso de se llegar a 0 ya no se tomara en cuanta en la aplicacion)
+  - Message (Esta tabla se creo para poder almacenar todos los mensaje que son enviados en la aplicacion):
+    - id int (auto incremental)
+    - idUser int (llave foranea para identificar que usuario mando el mensaje)
+    - idRoom int (llave foranea para indentificar en que sala de chat se envio)
+    - text varchar (el mensaje que se envio en el chat )
