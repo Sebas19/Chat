@@ -21,6 +21,7 @@ namespace ChatJOYA
             listusers = nlist;
             listusers.Hide();
             detailform = new DetailsRoombyUser(this);
+            this.FormClosing += new FormClosingEventHandler(chatroom_FormClosing);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -71,6 +72,17 @@ namespace ChatJOYA
             }
             detailform.Show();
             detailform.listMessage(i,idUser);
+        }
+        private void chatroom_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //stops for from closing
+            e.Cancel = true;
+            this.Hide();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
